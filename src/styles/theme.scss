@@ -1,0 +1,229 @@
+@mixin header-font($fontcolor, $fontsize) {
+  font-family: 'Hind Siliguri', sans-serif;
+  color: $fontcolor;
+  font-size: $fontsize;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+@mixin data-font($fontcolor, $fontsize, $fontweight) {
+  font-family: 'Montserrat', sans-serif;
+  color: $fontcolor;
+  font-size: $fontsize;
+  font-weight: $fontweight;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  height: 2000px;
+  background-color: #7A7A7A;
+}
+
+header {
+  @include header-font(#515050, 24px);
+  background-color: #C7C7C7;
+  padding: 24px 0px 24px 24px;
+}
+
+main {
+  background: #fff;
+}
+
+.body-center {
+  width: 100%;
+}
+
+.top-header {
+  @include header-font(#727171, 24px);
+  text-align: center;
+  display: block;
+  padding-top: 100px;
+}
+
+section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.body-header {
+  @include header-font(#727171, 24px);
+  text-align: center;
+  display: block;
+  padding-bottom: 50px;
+}
+
+.house {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  .property-data {
+    margin-bottom: 20px;
+    border-top: 1px solid #eee;
+  }
+}
+
+.top-header + .house {
+  .property-data {
+    border-top: 0;
+  }
+}
+
+.price {
+  @include data-font(#515050, 36px, 500);
+}
+
+.address {
+  @include data-font(#D5D5D5, 20px, 300);
+}
+
+.rooms {
+
+}
+
+.house-info {
+  border-width: 0px 0px 0px 1px;
+  border-style: solid;
+  border-color: #979797;
+  display: inline-block;
+}
+
+@media screen and (max-width: 768px) {
+  .house-info {
+    border-style: none;
+    border-width: 0;
+  }
+
+  .rooms ul {
+    padding-top: 15px;
+  }
+
+  .form-weather {
+    padding: 0px 20px;
+  }
+
+  .schedule-submit {
+    margin-left: 55%;
+  }
+}
+
+.house-info ul,
+.rooms ul {
+  list-style: none;
+}
+
+.label {
+  @include data-font(#979797, 20px, 500);
+  padding-right: 20px;
+  display: inline-block;
+}
+
+.house-info li,
+.rooms li {
+  @include data-font(#7E7E7E, 20px, 300);
+}
+
+.house-image {
+  @include border-radius(10px);
+
+}
+
+.weather {
+  background-color: #F1F1F1;
+  height: 400px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.weather-input {
+  display: inline-flex;
+  width: 100%;
+}
+
+.zip-input {
+  @include data-font(#7C7C7C, 20px, 300);
+  @include border-radius(10px);
+  height: 50px;
+  border-color: #979797;
+}
+
+.temperature {
+  display: none;
+}
+
+.submit-button {
+  @include data-font(#FFFFFF, 20px, 500);
+  @include border-radius(20px);
+  margin-left: 5%;
+  background-color: #5979A2;
+  border-width: 0px;
+  padding: 10px 30px 10px 30px;
+  text-transform: uppercase;
+}
+
+.schedule-input {
+  @extend .zip-input;
+  margin: 10px;
+}
+
+.date-input-wrap {
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    position: absolute;
+    right: 0;
+    display: inline-block;
+    content: "\f073";
+    font-family: 'FontAwesome';
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 25px;
+  }
+}
+
+.date-input {
+  @extend .zip-input;
+  margin: 10px;
+}
+
+.has-error {
+  color: red;
+  border-color: red;
+}
+
+.fa.fa-circle-o-notch {
+  display: none;
+   -webkit-animation: rotation 1s infinite linear;
+   transform-origin: center;
+}
+
+.is-submitting .fa.fa-circle-o-notch {
+  display: inline-block;
+}
+
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);}
+    to   {-webkit-transform: rotate(360deg);}
+}
+
+footer {
+  @include header-font(#FFFFFF, 24px);
+  text-align: center;
+  display: block;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
